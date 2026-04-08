@@ -7,6 +7,14 @@ object galvan{
         sueldo = _sueldo
     }
    
+   method deuda(){
+    return deuda
+   }
+
+   method dinero(){
+    return dinero
+   }
+
    method dinero(_dinero){
     return _dinero
    }
@@ -25,14 +33,20 @@ object galvan{
              dinero = dinero - cantidad
         }
         else{
-            deuda = deuda + cantidad
+            deuda = deuda + cantidad - dinero
+            dinero = 0
         }
     }
     method pagarDeuda(){
         if (deuda <= dinero){
-        deuda = deuda - dinero
         dinero = dinero - deuda
+        deuda = 0
         }
+        else{
+        deuda = deuda - dinero
+        dinero = 0
+        }
+    
     }
     
 }
